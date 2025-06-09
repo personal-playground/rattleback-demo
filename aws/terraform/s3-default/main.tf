@@ -67,3 +67,9 @@ resource "aws_s3_object" "uut2" {
   key    = "testobject"
   source = "files/test2.txt"
 }
+resource "aws_s3_bucket_versioning" "my_aws_s3_bucket_versioning_aws_s3_bucket_uut" {
+  bucket = aws_s3_bucket.uut.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
